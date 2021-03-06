@@ -1,0 +1,61 @@
+body {
+	margin: 0;
+	border: 0;
+	background: black;
+	text-align: center;
+
+}
+
+#title {
+	margin: 0;
+	text-align: center;
+}
+
+.main {
+	color: #fff;
+}
+.point {
+	display: inline-block;
+	color: #fff;
+	border: 0;
+	margin: 0; 
+}
+#fundoX {
+	background-color: #4F4F4F;
+	border-radius: 0.8rem;
+}
+#fundoE {
+	background-color: #4F4F4F;
+	border-radius: 0.8rem;
+}
+#fundoO {
+	background-color: #4F4F4F;
+	border-radius: 0.8rem;
+}
+#scoreX {
+	margin-right: 30px;
+	color: #00BFFF;
+}
+#scoreO {
+	margin-right: 30px;
+	color: #FF0000;
+}
+#scoreE {
+	margin-right: 30px;
+	color: #00FF00;
+}
+
+.board {
+	border: 0;
+	margin: auto;
+	margin-top: -1rem;
+}
+
+b {
+	color: #fff;
+	font-size: 1.5rem;
+	margin-left: 31px;
+}
+#checkCpu {
+	margin: auto;
+}
