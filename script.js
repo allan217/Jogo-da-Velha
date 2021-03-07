@@ -37,9 +37,12 @@ function chkJogo(id){
 		}
 	}
 	if(cpu && jogador == 'O'){
-		chkJogo(jogadaDoComputador());
+		setTimeout(function(){
+			chkJogo(jogadaDoComputador())
+		},3000);
 	}
 }
+
 
 function jogadaDoComputador(){
 	var id = chkSrc('cel5');
