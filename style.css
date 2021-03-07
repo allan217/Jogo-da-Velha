@@ -27,10 +27,12 @@ body {
 #fundoE {
 	background-color: #4F4F4F;
 	border-radius: 0.8rem;
+	margin-top: -1rem;
 }
 #fundoO {
 	background-color: #4F4F4F;
 	border-radius: 0.8rem;
+	margin-top: -1rem;
 }
 #scoreX {
 	margin-right: 30px;
@@ -58,4 +60,12 @@ b {
 }
 #checkCpu {
 	margin: auto;
+}
+
+button {
+	margin: 0;
+    border: 0;
+    display: inline-flex;
+    font-size: x-large;
+    border-radius: 0.5rem;
 }
