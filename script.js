@@ -39,15 +39,33 @@ function chkJogo(id){
 	if(cpu && jogador == 'O'){
 		setTimeout(function(){
 			chkJogo(jogadaDoComputador())
-		},3000);
+		},2000);
 	}
 }
 
 
 function jogadaDoComputador(){
-	var id = chkSrc('cel5');
-	if(id == "branco.png"){
+	jogador = 'O';
+	var id1 = chkSrc('cel5');
+	var id2 = chkSrc('cel3');
+	var id3 = chkSrc('cel7');
+	var id4 = chkSrc('cel1');
+	var id5 = chkSrc('cel9');
+
+	if(id1 == "branco.png"){
 		return 'cel5';
+	}
+	if(id2 == "branco.png"){
+		return 'cel3';
+	}
+	if(id3 == "branco.png"){
+		return 'cel7';
+	}
+	if(id4 == "branco.png"){
+		return 'cel1';
+	}
+	if(id5 == "branco.png"){
+		return 'cel9';
 	}
 	return 'cel' + Math.floor((Math.random() * 9) + 1);
 }
