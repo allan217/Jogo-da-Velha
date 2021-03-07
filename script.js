@@ -1,6 +1,5 @@
 var jogador = 'X';
 var jogada = 0;
-var tmp;
 
 
 //Variáveis para armazenar a pontuação
@@ -15,7 +14,6 @@ function chkJogo(id){
 		document.getElementById(id).src = jogador + ".png";
 		jogada ++;
 		if(chkVitoria()){
-
 			alert('Fim do jogo!\n Vitória do '+ jogador);
 			
 			//Confere quem venceu e atualiza a pontuação
@@ -49,13 +47,6 @@ function jogadaDoComputador(){
 		return 'cel5';
 	}
 	return 'cel' + Math.floor((Math.random() * 9) + 1);
-}
-
-function intervalo(){
-	if(jogadaDoComputador()){
-		tmp = setTimeout(jogadaDoComputador, 3000);
-	}
-	
 }
 
 function chkSrc(id){
