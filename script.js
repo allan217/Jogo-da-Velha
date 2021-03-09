@@ -1,20 +1,40 @@
-var jogador = 'X';
-var jogada = 0;
+let jogador = 'X';
+let jogada = 0;
 
 
 //Variáveis para armazenar a pontuação
-var pontX = 0;
-var pontO = 0;
-var EMP = 0;
+let pontX = 0;
+let pontO = 0;
+let EMP = 0;
+
+const Modal = {
+	open() {
+		document.querySelector('.modal-overlay').classList.add('active');
+		
+  },
+	close() {
+		document.querySelector('.modal-overlay').classList.remove('active');
+  }
+}
+const ModalEmp = {
+	open() {
+		document.querySelector('.modal-empate').classList.add('active');
+		
+  },
+	close() {
+		document.querySelector('.modal-empate').classList.remove('active');
+  }
+}
 
 function chkJogo(id){
-	var src = chkSrc(id);
-	var cpu = document.getElementById('cpu').checked;
+	let src = chkSrc(id);
+	let cpu = document.getElementById('cpu').checked;
 	if(src == "branco.png"){
 		document.getElementById(id).src = jogador + ".png";
 		jogada ++;
 		if(chkVitoria()){
-			alert('Fim do jogo!\n Vitória do '+ jogador);
+
+			Modal.open();
 			
 			//Confere quem venceu e atualiza a pontuação
 			if(jogador === 'X'){
@@ -26,7 +46,7 @@ function chkJogo(id){
 		}
 
 		if(jogada >= 9){
-			alert('JOGO EMPATADO');
+			ModalEmp.open();
 			empate();
 			return;
 		}
@@ -46,32 +66,21 @@ function chkJogo(id){
 
 function jogadaDoComputador(){
 	jogador = 'O';
-	var id1 = chkSrc('cel5');
-	var id2 = chkSrc('cel3');
-	var id3 = chkSrc('cel7');
-	var id4 = chkSrc('cel1');
-	var id5 = chkSrc('cel9');
+	let id1 = chkSrc('cel5');
+	let id2 = chkSrc('cel3');
+	let id3 = chkSrc('cel7');
+	let id4 = chkSrc('cel1');
+	let id5 = chkSrc('cel9');
+	let id6 = chkSrc('cel2');
 
-	if(id1 == "branco.png"){
-		return 'cel5';
-	}
-	if(id2 == "branco.png"){
+	if(id1 == 'X'){ // os if, são para nivel de dificuldade para jogada do computador
 		return 'cel3';
-	}
-	if(id3 == "branco.png"){
-		return 'cel7';
-	}
-	if(id4 == "branco.png"){
-		return 'cel1';
-	}
-	if(id5 == "branco.png"){
-		return 'cel9';
 	}
 	return 'cel' + Math.floor((Math.random() * 9) + 1);
 }
 
 function chkSrc(id){
-	var src = document.getElementById(id).src;
+	let src = document.getElementById(id).src;
 	return src.substring(src.length - 10, src.length);
 }
 function chkVitoria(){
@@ -108,8 +117,8 @@ function recarregaJogo(){
 	jogada = 0;
 	
 	//Substitui todas as imagens por 'branco.png'
-	for(var i = 1; i < 10; i++){
-		var cel = document.getElementById('cel' + i);
+	for(let i = 1; i <= 9; i++){
+		let cel = document.getElementById('cel' + i);
 		cel.src = 'branco.png';
 	}
 	
