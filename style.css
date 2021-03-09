@@ -128,3 +128,9 @@ button {
 	opacity: 1;
 	visibility: visible;
 }
+.options {
+	border: 0;
+	margin: 0;
+	font-variant: all-petite-caps;
+	margin-left: -28px;
+}
