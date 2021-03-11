@@ -7,6 +7,22 @@ let pontX = 0;
 let pontO = 0;
 let EMP = 0;
 
+function selectPlayStart(option){
+	/*let jogadorX = document.getElementById('optionX');
+	let jogadorO = document.getElementById('optionO');
+	
+	if(jogadorX){
+		jogador = 'X';
+	}else{
+		jogador = 'O';
+	}*/
+
+	jogador = option.value;	
+	console.log(jogador);
+
+}
+
+
 const Modal = {
 	open() {
 		document.querySelector('.modal-overlay').classList.add('active');
@@ -14,6 +30,7 @@ const Modal = {
   },
 	close() {
 		document.querySelector('.modal-overlay').classList.remove('active');
+		setTimeout(recarregaJogo, 3000);
   }
 }
 const ModalEmp = {
@@ -23,18 +40,21 @@ const ModalEmp = {
   },
 	close() {
 		document.querySelector('.modal-empate').classList.remove('active');
+		setTimeout(recarregaJogo, 3000);
   }
 }
 
 function chkJogo(id){
+	document.getElementById('formRadios').hidden = true;
 	let src = chkSrc(id);
 	let cpu = document.getElementById('cpu').checked;
 	if(src == "branco.png"){
 		document.getElementById(id).src = jogador + ".png";
 		jogada ++;
 		if(chkVitoria()){
-
+			//alert("Parabens!!\n Vitoria do  " + jogador)
 			Modal.open();
+			mostrarVencedor();
 			
 			//Confere quem venceu e atualiza a pontuação
 			if(jogador === 'X'){
@@ -73,8 +93,23 @@ function jogadaDoComputador(){
 	let id5 = chkSrc('cel9');
 	let id6 = chkSrc('cel2');
 
-	if(id1 == 'X'){ // os if, são para nivel de dificuldade para jogada do computador
+	if(id1 == 'branco.png'){ // os if, são para nivel de dificuldade para jogada do computador
+		return 'cel5';
+	}
+	if(id2 == 'branco.png'){
 		return 'cel3';
+	}
+	if(id3 == 'branco.png'){
+		return 'cel7';
+	}
+	if(id4 == 'branco.png'){
+		return 'cel1';
+	}
+	if(id5 == 'branco.png'){
+		return 'cel9';
+	}
+	if(id6 == 'branco.png'){
+		return 'cel2';
 	}
 	return 'cel' + Math.floor((Math.random() * 9) + 1);
 }
@@ -113,6 +148,7 @@ function chkVitoria(){
 
 //Função que limpa o tabuleiro
 function recarregaJogo(){
+	document.getElementById('formRadios').hidden = false;
 	//Zera o número de jogadas registradas
 	jogada = 0;
 	
@@ -126,7 +162,9 @@ function recarregaJogo(){
 	atualizaPlacar();
 	
 	//Garante que o jogador inicial seja o 'X'
-	jogador = 'X'
+	//jogador = 'X'
+
+
 }
 
 //Função que atualiza os elementos HTML com a pontuação de X e O
@@ -140,4 +178,9 @@ function empate(){
 	if(jogada >= 9){
 		EMP++;
 	}
+}
+
+//Função que mostra na tela qual foi o vencedor do momento.
+function mostrarVencedor(){
+	document.getElementById('playStart').innerHTML = jogador;
 }

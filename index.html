@@ -53,7 +53,7 @@
 			<div class="modal-overlay">
        			<div class="modal">
                 	<h1>Parabéns!!!!</h1>
-                    <h3>Vitória do </h3>
+                    <h3>Vitória do <label id="playStart"></label></h3>
                     <button href="#" onclick="Modal.close()" class="buttonSairModal">OK</button>
                </div>
             </div>
@@ -66,11 +66,11 @@
 		        </div>
 		    </div>
 
-		    <form class="options">
-		    	<b>Iniciar com X</b>
-				<INPUT TYPE="RADIO" NAME="OPCAO" VALUE="op1">
-				<b>Iniciar com O</b>
-				<INPUT TYPE="RADIO" NAME="OPCAO" VALUE="op2">
+		    <form class="options" id="formRadios">
+		    	<b>Play X</b>
+				<input  type="radio" name="opcao" value="X" onclick="selectPlayStart(this)">
+				<b>Play O</b>
+				<input  type="radio" name="opcao" value="O" onclick="selectPlayStart(this)">
             </form>
 
 			<script src="script.js"></script>
